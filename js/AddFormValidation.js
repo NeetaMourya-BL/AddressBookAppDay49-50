@@ -83,7 +83,7 @@ const getSelectedValue = (propertyValue) => {
     return setItem;
 }
 
-//Data storing in local storage
+//UC6 Data storing in local storage
 const addAndUpdateLocalStorage = (persons) => {
     let personList = JSON.parse(localStorage.getItem("AddressBookList"));
     if (personList != undefined) {
