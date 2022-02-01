@@ -1,44 +1,77 @@
-// UC3
+//UC => 6
+class AddressBook {
+    get id() {
+        return this._id;
+    }
+    set id(id) {
+        this._id = id;
+    }
 
-class EmployeePayrollData {
-    //getter and setter method
-    get fullName() {
-        return this._fullName;
+    // UC => 7
+    get name() {
+        return this._name;
     }
-    set fullName(fullName) {
-        let nameRegex = RegExp('^[A-z]{1}[a-z]{2,}$');
-        if (nameRegex.test(fullName))
-            this.fullName = fullName;
-        else throw 'Name is incorrect';
+    set name(name) {
+        const nameRegex = RegExp('^[A-Z]{1}[a-z]{2,}$');
+        if (nameRegex.test(name)) {
+            this._name = name;
+        } else {
+            throw "First letter must be in uppercase and min 3 character long";
+        }
     }
+
+    // UC => 7
+    get phone() {
+        return this._phone;
+    }
+    set phone(phone) {
+        const phoneRegex = RegExp('^[+][1-9]{2}[-][0-9]{10}$');
+        if (phoneRegex.test(phone)) {
+            this._phone = phone;
+        } else {
+            throw "Phone number should be (Ex:+91-665445646)";
+        }
+    }
+
+    // UC => 7
     get address() {
         return this._address;
     }
     set address(address) {
-        this._address = address;
+        const addressRegex = RegExp('^([A-Za-z0-9/.,-]{3,}.)+$');
+        if (addressRegex.test(address)) {
+            this._address = address;
+        } else {
+            throw "Sorry entered address is incorrect";
+        }
     }
+
     get city() {
         return this._city;
     }
     set city(city) {
         this._city = city;
     }
+
     get state() {
         return this._state;
     }
     set state(state) {
         this._state = state;
     }
-    get zipCode() {
-        return this._zipCode;
+
+    get zipcode() {
+        return this._zipcode;
     }
-    set zipCode(zipCode) {
-        this._zipCode = zipCode;
+    set zipcode(zipcode) {
+        this._zipcode = zipcode;
     }
-    get phoneNumber() {
-        return this._phoneNumber;
-    }
-    set phoneNumber(phoneNumber) {
-        this._phoneNumber = phoneNumber;
+
+    //method to get values UC => 7
+    toString() {
+
+        return "id : " + this._id + ", name : " + this._name + ", phone : " + this._phone + ", address : " + this._address +
+            ", city : " + this.city + ", state : " + this._state + ", zipcode : " + this._zipcode;
+
     }
 }
