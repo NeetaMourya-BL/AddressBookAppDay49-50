@@ -1,6 +1,6 @@
+// UC3
+
 class EmployeePayrollData {
-
-
     //getter and setter method
     get fullName() {
         return this._fullName;
